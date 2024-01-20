@@ -8,8 +8,19 @@ const Register = () => {
   const navigate = useNavigate();
 
   //form handler
-  const onfinishHandler = (values) => {
-    console.log(values);
+  const onfinishHandler = async (values) => {
+    try {
+      const res = await axios.post('/api/v1/user/register', values);
+      if (res.data.success) {
+        message.success('Register Successfully!');
+        navigate('/login');
+      } else {
+        message.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      message.error('Something Went Wrong');
+    }
   };
   return (
     <>
