@@ -2,9 +2,9 @@ import React from 'react';
 import '../styles/LayoutStyles.css';
 import { adminMenu, userMenu } from './../Data/data';
 
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { message } from "antd";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { message, Badge } from 'antd';
 
 const Layout = ({ children }) => {
   const { user } = useSelector((state) => state.user);
@@ -14,8 +14,8 @@ const Layout = ({ children }) => {
   // logout funtion
   const handleLogout = () => {
     localStorage.clear();
-    message.success("Logout Successfully");
-    navigate("/login");
+    message.success('Logout Successfully');
+    navigate('/login');
   };
 
   // redering menu list
@@ -49,8 +49,10 @@ const Layout = ({ children }) => {
           </div>
           <div className="content">
             <div className="header">
-            <div className="header-content">
-                <i className="fa-solid fa-bell"></i>
+              <div className="header-content">
+                <Badge count={user && user.notifcation.length}>
+                  <i className="fa-solid fa-bell"></i>
+                </Badge>
                 <Link to="/profile">{user?.name}</Link>
               </div>
             </div>
