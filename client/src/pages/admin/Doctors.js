@@ -71,13 +71,13 @@ const Doctors = () => {
         <div className="d-flex">
           {record.status === 'pending' ? (
             <button
-              className="btn btn-success btn-sm"
+              className="btn btn-success"
               onClick={() => handleAccountStatus(record, 'approved')}
             >
               Approve
             </button>
           ) : (
-            <button className="btn btn-danger btn-sm">Reject</button>
+            <button className="btn btn-danger">Reject</button>
           )}
         </div>
       ),

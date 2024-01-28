@@ -3,10 +3,9 @@ import axios from 'axios';
 import Layout from './../components/Layout';
 import { Row } from 'antd';
 import DoctorList from '../components/DoctorList';
-
 const HomePage = () => {
   const [doctors, setDoctors] = useState([]);
-  //login user data
+  // login user data
   const getUserData = async () => {
     try {
       const res = await axios.get(
@@ -29,12 +28,11 @@ const HomePage = () => {
   useEffect(() => {
     getUserData();
   }, []);
-
   return (
     <Layout>
       <h1 className="text-center">Home Page</h1>
       <Row>
-      {doctors && doctors.map((doctor) => <DoctorList doctor={doctor} />)}
+        {doctors && doctors.map((doctor) => <DoctorList doctor={doctor} />)}
       </Row>
     </Layout>
   );

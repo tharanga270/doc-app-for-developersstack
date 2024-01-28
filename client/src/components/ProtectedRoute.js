@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
@@ -27,12 +27,12 @@ export default function ProtectedRoute({ children }) {
       if (res.data.success) {
         dispatch(setUser(res.data.data));
       } else {
-        <Navigate to="/login" />;
         localStorage.clear();
+        <Navigate to="/login" />;
       }
     } catch (error) {
-      dispatch(hideLoading());
       localStorage.clear();
+      dispatch(hideLoading());
       console.log(error);
     }
   };

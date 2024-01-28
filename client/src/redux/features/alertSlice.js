@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const alertSlice = createSlice({
-  name: 'alerts',
+  name: "alerts",
   initialState: {
     loading: false,
   },
@@ -12,7 +12,6 @@ export const alertSlice = createSlice({
     hideLoading: (state) => {
       state.loading = false;
     },
-
   },
 });
 
